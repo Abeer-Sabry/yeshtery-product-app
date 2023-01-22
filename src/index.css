@@ -1,13 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Montserrat, sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+li,
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+:root {
+  --primary-color: #fff100;
+  --secondary-colo: #542e90;
+  --gray-light-color: #aeaeae;
+  --gray-color: #3c3c3b;
+}
+/* reusable-components-styles */
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+.flexDiv {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.flexible {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.gridDiv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+}
+.titleWhite {
+  font-size: 15px;
+  color: white;
+}
+.titleGray {
+  font-size: 15px;
+  color: black;
+}
+.SearchInput {
+  position: relative;
+}
+.SearchInput input {
+  border: 1px solid var(--gray-light-color);
+  background-color: white;
+  font-size: 13px;
+  padding: 12px 10px 12px 30px;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.absoluteDiv {
+  position: absolute;
+}
+.btn {
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: none;
+}
+.btn.Yellow {
+  background-color: var(--primary-color);
+}
+.btn.Purple {
+  background-color: var(--secondary-colo);
+}
+/* /reusable */
+
+/* Navbar */
+.search {
+  top: 10px;
+  left: 12px;
+  width: 15px;
+  height: 15px;
+}
+.paragraph {
+  margin-bottom: 5px;
+}
+.adidas {
+  width: 70px;
+  height: 70px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+footer {
+  background-color: var(--gray-color);
+  padding: 20px 0;
+  color: white;
+}
+
+footer .logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+footer a {
+  display: block;
+  margin-bottom: 7px;
+  text-transform: capitalize;
+  color: white;
+}
+.btnPosition {
+  top: 4px;
+  right: 5px;
 }
