@@ -1,0 +1,14 @@
+$primary-color: #fff100;
+$secondary-color: #542e90;
+.btn {
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: none;
+}
+.btn.Yellow {
+  background-color: $primary-color;
+}
+.btn.Purple {
+  background-color: $secondary-color;
+  color: white;
+}

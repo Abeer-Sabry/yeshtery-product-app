@@ -1,0 +1,43 @@
+$primary-color: #fff100;
+.contactsWrapper {
+  background-color: $primary-color;
+  padding: 5px 0;
+  margin: 10px 0;
+  .contactsParent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logoIcon {
+    width: 17px;
+    margin-right: 10px;
+  }
+  .conYeshtery {
+    width: 80px;
+  }
+  .offer {
+    font-weight: 500;
+    font-size: 12px;
+    a {
+      text-decoration: underline;
+      color: black;
+    }
+  }
+  .contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      width: 15px;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .offer {
+      margin: 5px 0;
+    }
+  }
+}

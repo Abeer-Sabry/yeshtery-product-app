@@ -1,0 +1,55 @@
+$secondary-color: #542e90;
+$primary-color: #fff100;
+$gray-color: #3c3c3b;
+$gray-light-color: #aeaeae;
+
+.designWrapper {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+  .productImg {
+    width: 100%;
+    text-align: center;
+  }
+  p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: $gray-color;
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .productPrice {
+    color: $secondary-color;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 7px;
+  }
+  .productDiscount {
+    margin-right: 20px;
+    font-weight: 500;
+    color: $gray-light-color;
+  }
+  .productPercentage {
+    background-color: $primary-color;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: black;
+  }
+  .productLogo {
+    width: 50px;
+  }
+  .rateNumber {
+    font-weight: 600;
+    color: $gray-color;
+    font-size: 12px;
+  }
+}

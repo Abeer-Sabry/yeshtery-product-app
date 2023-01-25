@@ -1,4 +1,3 @@
-import { useQuery } from "react-query";
 import { axiosInstance } from "../api/axios";
 
 export const getData = async url => {
@@ -6,4 +5,7 @@ export const getData = async url => {
 };
 export const getDataByTitle = async (url, title) => {
   return await axiosInstance.get(`/${url}?title=${title}`);
+};
+export const updateCart = async (url, id, body) => {
+  return await axiosInstance.patch(`/${url}/${id}`, body);
 };

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./IconsDiv.scss";
 const IconsDev = ({ colorStyle = false, icon, title }) => {
   return (
     <>

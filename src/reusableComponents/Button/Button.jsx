@@ -1,3 +1,5 @@
+import "./Button.scss";
+
 import React from "react";
 
 const Button = ({ bg = true, children }) => {

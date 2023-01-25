@@ -1,0 +1,25 @@
+$gray-color: #3c3c3b;
+footer {
+  background-color: $gray-color;
+  padding: 20px 0;
+  color: white;
+  .logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  a {
+    display: block;
+    margin-bottom: 7px;
+    text-transform: capitalize;
+    color: white;
+  }
+  .btnPosition {
+    top: 3px;
+    right: 5px;
+  }
+  .btnImg {
+    width: 13px;
+    height: 13px;
+    margin-left: 5px;
+  }
+}

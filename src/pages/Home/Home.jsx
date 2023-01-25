@@ -1,12 +1,20 @@
-import React from "react";
-import { useQuery } from "react-query";
+import React, { Component } from "react";
+// components
 import Products from "../../components/Products/Products";
-import { getData } from "../../services";
+import { axiosInstance } from "../../api/axios";
 
-const Home = () => {
-  const { data, isFetching, isLoading } = useQuery(["products"], () => getData("/products"));
-  console.log(data);
-  return <>{isLoading ? "loading..." : <Products data={data.data} />}</>;
-};
+class Home extends Component {
+  render() {
+    return (
+      <>
+        {this.props.loading ? (
+          "Loading"
+        ) : (
+          <Products data={this.props.products && this.props.products} />
+        )}
+      </>
+    );
+  }
+}
 
 export default Home;

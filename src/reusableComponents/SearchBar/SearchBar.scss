@@ -1,0 +1,17 @@
+$gray-light-color: #aeaeae;
+.SearchInput {
+  position: relative;
+}
+.SearchInput input {
+  border: 1px solid $gray-light-color;
+  background-color: white;
+  font-size: 13px;
+  padding: 12px 10px 12px 30px;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.absoluteDiv {
+  position: absolute;
+}

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+body {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+li,
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+
+$primary-color: #fff100;
+$secondary-colo: #542e90;
+$gray-light-color: #aeaeae;
+$gray-color: #3c3c3b;
+
+.gridDiv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: center;
+}

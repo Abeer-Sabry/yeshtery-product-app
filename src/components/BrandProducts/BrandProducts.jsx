@@ -1,13 +1,9 @@
 import React from "react";
-import useFetchDataByBrand from "../../hooks/useFetchDataByBrand";
 
 const BrandProducts = ({ brand }) => {
-  const { data, isLoading } = useFetchDataByBrand("productBrand", "products", brand);
-  console.log("brandData", data);
-
   return (
     <>
-      {isLoading ? (
+      {/* {isLoading ? (
         "loading..."
       ) : (
         <div>
@@ -17,7 +13,7 @@ const BrandProducts = ({ brand }) => {
             </div>
           ))}
         </div>
-      )}
+      )} */}
     </>
   );
 };

@@ -1,47 +1,82 @@
-import React, { useState } from "react";
-import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
 import BrandProducts from "../../components/BrandProducts/BrandProducts";
-import useFetchDataWithId from "../../hooks/useFetchDataById";
-import { getDataByTitle } from "../../services";
 
-const SingleProduct = () => {
-  const { title } = useParams();
-  console.log("singleProduct", title);
-  const { data, isLoading } = useFetchDataWithId("product", "products", title);
-  const [qty, setQty] = useState(data?.data[0].qty);
-  // const { data, isFetching, isLoading } = useQuery(
-  //   ["singleProduct", title],
-  //   getDataByTitle(`products`, title),
-  //   {
-  //     enabled: !!title,
-  //   }
-  // );
-  console.log("singleData", data);
-  console.log("qty", qty);
+import React, { Component } from "react";
+import { axiosInstance } from "../../api/axios";
+import "./SingleProduct.scss";
+import Button from "../../reusableComponents/Button/Button";
+import { withRouter } from "react-router";
+export default class SingleProduct extends Component {
+  componentDidMount() {
+    
+    // console.log(title);
+    // axiosInstance.get(`/products?title=${title}`).then(res => console.log(res));
+  }
 
-  const clickHandler = () => {
-    setQty(prev => prev + 1);
-  };
-  const decrementHandler = () => {
-    setQty(prev => prev - 1);
-  };
+  render() {
+    // const queryParams = new URLSearchParams(window.location.search);
+    // const title = queryParams.get("title");
+    // const search = this.props.location.search;
+    // const title = new URLSearchParams(search).get("title");
+    // console.log(Location.pathname);
+    // const { title } = this.props.match.params;
 
-  return (
-    <>
-      {isLoading ? (
-        "loading..."
-      ) : (
-        <>
-          {data.data[0].title}
-          <button onClick={clickHandler}>add to cart</button>
-          <button onClick={decrementHandler}>minus</button>
+    return (
+      <div>
+        <div className="singlePage">
+          <div>
+            <img src="/images/Group 333.png" alt="" />
+          </div>
 
-          <BrandProducts brand={data.data[0].brand} />
-        </>
-      )}
-    </>
-  );
-};
+          <div>
+            <img className="singleLogo" src="/images/Group 745.svg" alt="" />
+            <h2>shirt</h2>
+            <p className="cate">men</p>
+            <div className="singleRating">
+              <span>00</span>
+              <span>2.5 of 5</span>
+              <span className="rate">22 Rates</span>
+            </div>
+            <div className="singlePrice">
+              <span className="price">55222</span>
+              <span>
+                <del className="singleDiscount">55222</del>
+              </span>
+              <span className="percent">30%</span>
+            </div>
+            <hr />
 
-export default SingleProduct;
+            <h3>size</h3>
+            <ul className="sizes">
+              <li>
+                <span>small</span>
+                <span>small</span>
+                <span>small</span>
+                <span>small</span>
+                <span>small</span>
+              </li>
+            </ul>
+            <hr />
+            <h3>colors</h3>
+            <img className="colorsImg" src="/images/Group 333.png" alt="" />
+            <hr />
+            <h3>Quantity</h3>
+            <div className="addToCart">
+              1<span className="decrement">-</span>
+              <span className="increment">+</span>
+            </div>
+            <div className="cartBtns">
+              <Button bg={false}>Add to Cart</Button>
+              <Button>PickUp From Store</Button>
+            </div>
+          </div>
+        </div>
+
+        {/* <>
+         {data.data[0].tit
+         <BrandProducts brand={data.data[0].brand} />
+         } 
+         </> */}
+      </div>
+    );
+  }
+}

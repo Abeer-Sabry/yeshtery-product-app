@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../reusableComponents/Button";
-import Container from "../../reusableComponents/Container";
-import FlexDiv from "../../reusableComponents/FlexDiv";
-import IconsDev from "../../reusableComponents/IconsDev";
-import SearchBar from "../../reusableComponents/SearchBar";
-
+import Button from "../../reusableComponents/Button/Button";
+import Container from "../../reusableComponents/Container/Container";
+import FlexDiv from "../../reusableComponents/FlexDiv/FlexDiv";
+import IconsDev from "../../reusableComponents/IconsDiv/IconsDev";
+import SearchBar from "../../reusableComponents/SearchBar/SearchBar";
+import "./Footer.scss";
 const Footer = () => {
   return (
     <footer>
@@ -19,7 +19,6 @@ const Footer = () => {
               brands and products available in the stock real time.
             </p>
           </div>
-
           <div>
             <p className="paragraph">Subscribe to our newsletter</p>
             <SearchBar
@@ -28,7 +27,7 @@ const Footer = () => {
               absolute={
                 <Button>
                   Subscribe
-                  <img src="../../../public/images/Group 770.svg" alt="" />
+                  <img className="btnImg" src="/images/Group 1431.svg" alt="" />
                 </Button>
               }
             />
