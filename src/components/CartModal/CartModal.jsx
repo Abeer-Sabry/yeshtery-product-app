@@ -2,16 +2,9 @@ import React, { Component } from "react";
 import Button from "../../reusableComponents/Button/Button";
 import "./CartModal.scss";
 class CartModal extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     cartItems: [],
-  //   };
-  // }
-
   render() {
-    const cartItems = this.props.products.filter(item => item.qty > 0);
-
+    const { cartItems } = this.props;
+    console.log("modal", cartItems);
     return (
       <div className="overlay" onClick={e => e.stopPropagation()}>
         <div className="cartWrapper">

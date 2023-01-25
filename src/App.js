@@ -1,42 +1,43 @@
-import { Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home/Home.jsx";
-import SingleProduct from "./pages/SingleProduct/SingleProduct";
-
 import Contacts from "./components/Contacts/Contacts";
 import Category from "./components/Category/Category";
-import Container from "./reusableComponents/Container/Container";
 import CartModal from "./components/CartModal/CartModal";
-import Layout from "./components/Layout/Layout";
 import Pages from "./pages/Pages";
-// import { axiosInstance } from "./api/axios";
+import { axiosInstance } from "./api/axios";
 
 export default class App extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     products: [],
-  //     loading: true,
-  //   };
-  // }
-  // componentDidMount() {
-  //   axiosInstance.get("/products").then(response => {
-  //     console.log("res", response.data);
-  //     this.setState({ loading: false, products: response.data });
-  //   });
-  // }
+  constructor() {
+    super();
+    this.state = {
+      products: [],
+      loading: true,
+      cartItems: [],
+    };
+  }
+  componentDidMount() {
+    axiosInstance.get("/products").then(response => {
+      this.setState({
+        loading: false,
+        products: response.data,
+      });
+    });
+  }
+  componentDidUpdate() {
+    // this.setState({
+    //   cartItems: this.state.products && this.state.products.filter(product => product.qty > 0),
+    // });
+  }
   render() {
+    const cartItems = this.state.products && this.state.products.filter(product => product.qty > 0);
     return (
       <div className="App">
         <Contacts />
-        <Navbar />
+        <Navbar cartItems={cartItems} />
         <Category />
-        <Container>
-          <Pages />
-        </Container>
-        {/* <CartModal /> */}
+        <Pages products={this.state.products && this.state.products} loading={this.state.loading} />
+        <CartModal cartItems={cartItems} />
         <Footer />
       </div>
     );

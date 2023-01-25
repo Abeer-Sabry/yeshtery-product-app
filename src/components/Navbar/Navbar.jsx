@@ -5,7 +5,7 @@ import IconsDev from "../../reusableComponents/IconsDiv/IconsDev";
 import SearchBar from "../../reusableComponents/SearchBar/SearchBar";
 import "./Navbar.scss";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   return (
     <Container>
       <div className="parentGrid">
@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="flexible ">
           <FlexDiv>
             <IconsDev icon={"/images/Path 772.svg"} title={"cart"} badge={0} />
-            <span className="badge">0</span>
+            <span className="badge">{cartItems.length}</span>
           </FlexDiv>
           <FlexDiv>
             <IconsDev icon={"/images/Path 771 (1).svg"} title={"wishList"} />
