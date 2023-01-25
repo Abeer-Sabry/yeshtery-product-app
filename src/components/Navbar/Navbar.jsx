@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import "./Navbar.scss";
+// reusable-components
 import Container from "../../reusableComponents/Container/Container";
 import FlexDiv from "../../reusableComponents/FlexDiv/FlexDiv";
 import IconsDev from "../../reusableComponents/IconsDiv/IconsDev";
 import SearchBar from "../../reusableComponents/SearchBar/SearchBar";
-import "./Navbar.scss";
 
 class Navbar extends Component {
   render() {
@@ -26,16 +27,12 @@ class Navbar extends Component {
                 icon={"/images/Path 772.svg"}
                 title={"cart"}
                 badge={0}
-                onClick={() => this.props.toggleCart()}
+                onClick={() => this.props.showCart()}
               />
               <span className="badge">{this.props.cartItems.length}</span>
             </FlexDiv>
-            <FlexDiv>
-              <IconsDev icon={"/images/Path 771 (1).svg"} title={"wishList"} />
-            </FlexDiv>
-            <FlexDiv>
-              <IconsDev icon={"/images/Path 773.svg"} title={"Login"} />
-            </FlexDiv>
+            <IconsDev icon={"/images/Path 771 (1).svg"} title={"wishList"} />
+            <IconsDev icon={"/images/Path 773.svg"} title={"Login"} />
           </div>
         </div>
       </Container>

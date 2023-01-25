@@ -20,15 +20,9 @@ const Contacts = () => {
             </p>
           </div>
           <div className="contacts">
-            <FlexDiv>
-              <IconsDev icon={"/images/Group 756.svg"} title="Contact"></IconsDev>
-            </FlexDiv>
-            <FlexDiv>
-              <IconsDev icon={"/images/Group 758.svg"} title="Track Order"></IconsDev>
-            </FlexDiv>
-            <FlexDiv>
-              <IconsDev icon={"/images/Group 753.svg"} title="Find A Store"></IconsDev>
-            </FlexDiv>
+            <IconsDev icon={"/images/Group 756.svg"} title="Contact"></IconsDev>
+            <IconsDev icon={"/images/Group 758.svg"} title="Track Order"></IconsDev>
+            <IconsDev icon={"/images/Group 753.svg"} title="Find A Store"></IconsDev>
           </div>
         </div>
       </Container>

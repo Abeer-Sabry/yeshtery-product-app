@@ -1,13 +1,15 @@
+@use "../../variables/Styles.scss" as *;
 .singlePage {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+  margin: 50px 0;
   .singleLogo {
     width: 50px;
     margin-bottom: 5px;
   }
   .cate {
-    color: gray;
+    color: $gray-color;
     font-weight: 600;
     text-transform: capitalize;
     margin: 8px 0;
@@ -21,7 +23,7 @@
       font-size: 14px;
     }
     .rate {
-      color: gray;
+      color: $gray-color;
     }
   }
   .singlePrice {
@@ -33,11 +35,11 @@
       font-size: 14px;
     }
     .price {
-      color: purple;
+      color: $secondary-color;
       font-weight: bold;
     }
     .percent {
-      background-color: yellow;
+      background-color: $primary-color;
       padding: 2px 7px;
       font-weight: 500;
     }
@@ -53,19 +55,24 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      border: 1px solid gray;
-      margin-right: 12px;
+      border: 1px solid $gray-lighter-color;
       text-align: center;
       line-height: 50px;
+      color: $secondary-color;
+      font-size: 13px;
+      font-weight: 600;
+      margin-right: 12px;
+      margin-bottom: $margin-bottom;
     }
   }
   .colorsImg {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-bottom: $margin-bottom;
   }
   .addToCart {
-    background-color: rgb(147, 147, 147);
+    background-color: $gray-lighter-color;
     border-radius: 20px;
     padding: 5px 0;
     width: 130px;
@@ -74,7 +81,7 @@
     margin-bottom: 15px;
     span {
       position: absolute;
-      background-color: yellow;
+      background-color: $primary-color;
       border-radius: 50%;
       display: inline-block;
       width: 25px;
@@ -94,6 +101,13 @@
   .cartBtns {
     button {
       margin-right: 25px;
+      margin-bottom: $margin-bottom;
     }
+  }
+  // .line {
+  //   background-color: $gray-lighter-color;
+  // }
+  @media only screen and (max-width: 991px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

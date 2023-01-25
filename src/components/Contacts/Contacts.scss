@@ -1,8 +1,8 @@
-$primary-color: #fff100;
+@use "../../variables/Styles.scss" as *;
 .contactsWrapper {
   background-color: $primary-color;
   padding: 5px 0;
-  margin: 10px 0;
+  margin-bottom: $margin-bottom;
   .contactsParent {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -11,7 +11,7 @@ $primary-color: #fff100;
   }
   .logoIcon {
     width: 17px;
-    margin-right: 10px;
+    margin-right: $margin-bottom;
   }
   .conYeshtery {
     width: 80px;

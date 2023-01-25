@@ -42,7 +42,7 @@ export default class SingleProduct extends Component {
               </span>
               <span className="percent">30%</span>
             </div>
-            <hr />
+            <hr className="line" />
 
             <h3>size</h3>
             <ul className="sizes">
@@ -54,10 +54,10 @@ export default class SingleProduct extends Component {
                 <span>small</span>
               </li>
             </ul>
-            <hr />
+            <hr className="line" />
             <h3>colors</h3>
             <img className="colorsImg" src="/images/Group 333.png" alt="" />
-            <hr />
+            <hr className="line" />
             <h3>Quantity</h3>
             <div className="addToCart">
               1<span className="decrement">-</span>

@@ -1,4 +1,4 @@
-$gray-light-color: #aeaeae;
+@use "../../variables/Styles.scss" as *;
 .SearchInput {
   position: relative;
 }

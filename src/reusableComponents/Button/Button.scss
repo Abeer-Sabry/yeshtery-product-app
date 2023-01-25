@@ -1,14 +1,16 @@
-$primary-color: #fff100;
-$secondary-color: #542e90;
-.btn {
+@use "../../variables/Styles" as *;
+
+%btn {
   padding: 7px 20px;
   border-radius: 20px;
   border: none;
 }
-.btn.Yellow {
+.yellow {
+  @extend %btn;
   background-color: $primary-color;
 }
-.btn.Purple {
+.purple {
+  @extend %btn;
   background-color: $secondary-color;
   color: white;
 }

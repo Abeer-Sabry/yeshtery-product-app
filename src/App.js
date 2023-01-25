@@ -37,9 +37,9 @@ export default class App extends Component {
   }
 
   // this onClick cartIcon in Navbar component Function for toggling cartModal
-  toggleCart = () => {
+  showCart = () => {
     this.setState({
-      showCartModal: !this.state.showCartModal,
+      showCartModal: true,
     });
   };
   // this onClick closeIcon in CartModal component Function for closing cartModal
@@ -55,7 +55,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Contacts />
-        <Navbar cartItems={cartItems} toggleCart={this.toggleCart} />
+        <Navbar cartItems={cartItems} showCart={this.showCart} />
         <Category />
         <Pages products={this.state.products && this.state.products} loading={this.state.loading} />
         {this.state.showCartModal && <CartModal cartItems={cartItems} closeCart={this.closeCart} />}
