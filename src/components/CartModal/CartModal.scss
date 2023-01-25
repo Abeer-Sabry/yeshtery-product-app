@@ -1,14 +1,14 @@
 $secondary-color: #542e90;
 $gray-color: #3c3c3b;
-// .overlay {
-//   position: fixed;
-//   left: 0;
-//   top: 0;
-//   width: 100%;
-//   height: 100vh;
-//   background-color: rgba(0, 0, 0, 0.1);
-//   z-index: 9999999999999;
-// }
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999999999999;
+}
 .cartWrapper {
   padding: 30px 20px;
   background-color: white;

@@ -1,11 +1,7 @@
+import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
-import CartModal from "../components/CartModal/CartModal";
 import Home from "./Home/Home";
 import SingleProduct from "./SingleProduct/SingleProduct";
-
-import React, { Component } from "react";
-import { axiosInstance } from "../api/axios";
-import Layout from "../components/Layout/Layout";
 import Container from "../reusableComponents/Container/Container";
 
 export default class Pages extends Component {

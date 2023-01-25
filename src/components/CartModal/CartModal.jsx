@@ -8,7 +8,12 @@ class CartModal extends Component {
     return (
       <div className="overlay" onClick={e => e.stopPropagation()}>
         <div className="cartWrapper">
-          <img className="closeIcon" src="/images/Group 1440.svg" alt="" />
+          <img
+            className="closeIcon"
+            src="/images/Group 1440.svg"
+            alt=""
+            onClick={() => this.props.closeCart()}
+          />
           <h3>My Cart</h3>
           <p>cart summary</p>
           {cartItems.length ? (

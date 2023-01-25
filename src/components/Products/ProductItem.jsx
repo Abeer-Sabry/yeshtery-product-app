@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ItemDesign from "../../reusableComponents/ItemDesign/ItemDesign";
 import { updateCart } from "../../services";
 import CartModal from "../CartModal/CartModal";
+import "./ProductItem.scss";
 
 export default class ProductItem extends Component {
   constructor() {
@@ -15,20 +15,32 @@ export default class ProductItem extends Component {
 
   render() {
     console.log("LinkTitle", this.props.product.title);
-    const { id, title, img, price, brandLogo, rating, discount, qty } = this.props.product;
+    const { id, title, img, price, brandLogo, rating, discount, qty, logo } = this.props.product;
 
+    const percentageDiscount = discount ? (discount / 100) * price : null;
+    const newPrice = price - percentageDiscount;
     return (
       <>
         <Link to={`/products/${title}`}>
-          <ItemDesign
-            img={img}
-            title={title}
-            price={price}
-            logo={brandLogo}
-            rating={rating}
-            discount={discount}
-            percentage={discount}
-          />
+          <div className="designWrapper">
+            <img className="productImg" src={img} alt={title} />
+            <p>{title}</p>
+            <div className="info">
+              <div c>
+                <span className="productPrice">${newPrice}</span>
+                <div>
+                  <del className="productDiscount">{price}</del>
+                  <span className="productPercentage">{discount}%</span>
+                </div>
+              </div>
+              <div>
+                <img className="productLogo" src={brandLogo} alt="" />
+              </div>
+            </div>
+            <div>
+              <span className="rateNumber">{rating} of 5</span>
+            </div>
+          </div>
           <button
             onClick={() =>
               updateCart("products", id, {

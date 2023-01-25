@@ -14,6 +14,7 @@ export default class App extends Component {
       products: [],
       loading: true,
       cartItems: [],
+      showCartModal: false,
     };
   }
   componentDidMount() {
@@ -24,20 +25,34 @@ export default class App extends Component {
       });
     });
   }
+
   componentDidUpdate() {
     // this.setState({
     //   cartItems: this.state.products && this.state.products.filter(product => product.qty > 0),
     // });
   }
+
+  toggleCart = () => {
+    this.setState({
+      showCartModal: !this.state.showCartModal,
+    });
+  };
+  closeCart = () => {
+    this.setState({
+      showCartModal: false,
+    });
+  };
+
   render() {
+    console.log("products", this.state.products);
     const cartItems = this.state.products && this.state.products.filter(product => product.qty > 0);
     return (
       <div className="App">
         <Contacts />
-        <Navbar cartItems={cartItems} />
+        <Navbar cartItems={cartItems} toggleCart={this.toggleCart} />
         <Category />
         <Pages products={this.state.products && this.state.products} loading={this.state.loading} />
-        <CartModal cartItems={cartItems} />
+        {this.state.showCartModal && <CartModal cartItems={cartItems} closeCart={this.closeCart} />}
         <Footer />
       </div>
     );
