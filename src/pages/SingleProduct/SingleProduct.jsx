@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./SingleProduct.scss";
-import { axiosInstance } from "../../api/axios";
-import BrandProducts from "../../components/BrandProducts/BrandProducts";
+// components
 import Button from "../../reusableComponents/Button/Button";
+import BrandProducts from "../../components/BrandProducts/BrandProducts";
 import { withRouter } from "react-router";
+import { getDataByTitle } from "../../services";
 export default class SingleProduct extends Component {
   componentDidMount() {
     // console.log(title);
-    // axiosInstance.get(`/products?title=${title}`).then(res => console.log(res));
+    // getDataByTitle(`/products?title=${title}`).then(res => console.log(res));
   }
 
   render() {

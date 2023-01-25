@@ -7,8 +7,6 @@ import "./Navbar.scss";
 
 class Navbar extends Component {
   render() {
-    // let { showModal ,setSta } = this.props;
-    // console.log("navbar", showModal);
     return (
       <Container>
         <div className="parentGrid">

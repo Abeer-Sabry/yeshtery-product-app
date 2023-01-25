@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+// components
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Contacts from "./components/Contacts/Contacts";
 import Category from "./components/Category/Category";
 import CartModal from "./components/CartModal/CartModal";
+// pages
 import Pages from "./pages/Pages";
-import { axiosInstance } from "./api/axios";
+// services
+import { getData } from "./services";
 
 export default class App extends Component {
   constructor() {
@@ -17,8 +20,9 @@ export default class App extends Component {
       showCartModal: false,
     };
   }
+  // fetching products data
   componentDidMount() {
-    axiosInstance.get("/products").then(response => {
+    getData("/products").then(response => {
       this.setState({
         loading: false,
         products: response.data,
@@ -32,11 +36,13 @@ export default class App extends Component {
     // });
   }
 
+  // this onClick cartIcon in Navbar component Function for toggling cartModal
   toggleCart = () => {
     this.setState({
       showCartModal: !this.state.showCartModal,
     });
   };
+  // this onClick closeIcon in CartModal component Function for closing cartModal
   closeCart = () => {
     this.setState({
       showCartModal: false,

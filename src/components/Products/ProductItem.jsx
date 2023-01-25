@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { updateCart } from "../../services";
-import CartModal from "../CartModal/CartModal";
 import "./ProductItem.scss";
 
 export default class ProductItem extends Component {

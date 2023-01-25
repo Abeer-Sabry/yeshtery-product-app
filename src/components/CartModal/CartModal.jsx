@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Button from "../../reusableComponents/Button/Button";
 import "./CartModal.scss";
+import Button from "../../reusableComponents/Button/Button";
 class CartModal extends Component {
   render() {
     const { cartItems } = this.props;
