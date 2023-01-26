@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import "react-alice-carousel/lib/scss/alice-carousel.scss";
+
 body {
   margin: 0;
   font-family: Montserrat, sans-serif;
@@ -24,4 +27,28 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   align-items: center;
+}
+.image-gallery-nav {
+  padding: 0;
+}
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  top: 110%;
+  filter: none;
+  padding: 50px 26px;
+}
+.image-gallery-right-nav .image-gallery-svg,
+.image-gallery-left-nav .image-gallery-svg {
+  width: 20px;
+  color: gainsboro;
+  box-shadow: none;
+}
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  margin-bottom: 30px;
+}
+.image-gallery-thumbnail,
+.image-gallery-thumbnail:focus,
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover {
+  border: none;
 }

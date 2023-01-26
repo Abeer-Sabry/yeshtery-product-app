@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { updateCart } from "../../services";
 import "./ProductItem.scss";
+import { Link } from "react-router-dom";
+// helpers
+import { formatDiscount, numberWithCommas } from "../../helpers/price";
+// mui
+import { Rating } from "@mui/material";
 
 export default class ProductItem extends Component {
   constructor() {
@@ -13,22 +16,21 @@ export default class ProductItem extends Component {
   }
 
   render() {
-    console.log("LinkTitle", this.props.product.title);
-    const { id, title, img, price, brandLogo, rating, discount, qty, logo } = this.props.product;
+    const { id, title, img, price, brandLogo, rating, discount } = this.props.product;
 
-    const percentageDiscount = discount ? (discount / 100) * price : null;
-    const newPrice = price - percentageDiscount;
     return (
       <>
-        <Link to={`/products/${title}`}>
+        <Link to={`/products/${id}`}>
           <div className="designWrapper">
             <img className="productImg" src={img} alt={title} />
             <p>{title}</p>
             <div className="info">
               <div c>
-                <span className="productPrice">${newPrice}</span>
+                <span className="productPrice">
+                  ${numberWithCommas(formatDiscount(price, discount))} L.E
+                </span>
                 <div>
-                  <del className="productDiscount">{price}</del>
+                  <del className="productDiscount">${numberWithCommas(price)} </del>
                   <span className="productPercentage">{discount}%</span>
                 </div>
               </div>
@@ -36,22 +38,23 @@ export default class ProductItem extends Component {
                 <img className="productLogo" src={brandLogo} alt="" />
               </div>
             </div>
-            <div>
-              <span className="rateNumber">{rating} of 5</span>
+            <div className="ratingDiv">
+              <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
+              <span className="rate">{rating} of 5</span>
+            </div>
+            <div className="country">
+              <div>
+                from: <span>uk</span>
+              </div>
+              <div>
+                to: <span>egypt</span>
+              </div>
+              <div>
+                in: <span>10</span>
+              </div>
             </div>
           </div>
-          <button
-            onClick={() =>
-              updateCart("products", id, {
-                ...this.props.product,
-                qty: qty + 1,
-              })
-            }
-          >
-            add to cart
-          </button>
         </Link>
-        {/* <CartModal /> */}
       </>
     );
   }

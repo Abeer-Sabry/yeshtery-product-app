@@ -16,10 +16,22 @@ export default class App extends Component {
     this.state = {
       products: [],
       loading: true,
-      cartItems: [],
       showCartModal: false,
+      cartItems: [],
     };
   }
+
+  addToCart = product => {
+    const exist = this.state.cartItems.find(item => item.id === product.id);
+    this.setState({
+      cartItems: exist
+        ? this.state.cartItems.map(item =>
+            item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+          )
+        : [...this.state.cartItems, { ...product, qty: product.qty + 1 }],
+    });
+  };
+
   // fetching products data
   componentDidMount() {
     getData("/products").then(response => {
@@ -30,13 +42,7 @@ export default class App extends Component {
     });
   }
 
-  componentDidUpdate() {
-    // this.setState({
-    //   cartItems: this.state.products && this.state.products.filter(product => product.qty > 0),
-    // });
-  }
-
-  // this onClick cartIcon in Navbar component Function for toggling cartModal
+  // this onClick cartIcon in Navbar component Function for opening cartModal
   showCart = () => {
     this.setState({
       showCartModal: true,
@@ -50,15 +56,20 @@ export default class App extends Component {
   };
 
   render() {
-    console.log("products", this.state.products);
-    const cartItems = this.state.products && this.state.products.filter(product => product.qty > 0);
     return (
       <div className="App">
         <Contacts />
-        <Navbar cartItems={cartItems} showCart={this.showCart} />
+        <Navbar cartItems={this.state.cartItems} showCart={this.showCart} />
         <Category />
-        <Pages products={this.state.products && this.state.products} loading={this.state.loading} />
-        {this.state.showCartModal && <CartModal cartItems={cartItems} closeCart={this.closeCart} />}
+        <Pages
+          products={this.state.products && this.state.products}
+          loading={this.state.loading}
+          cartItems={this.state.cartItems}
+          addToCart={this.addToCart}
+        />
+        {this.state.showCartModal && (
+          <CartModal cartItems={this.state.cartItems} closeCart={this.closeCart} />
+        )}
         <Footer />
       </div>
     );

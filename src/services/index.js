@@ -3,9 +3,9 @@ import { axiosInstance } from "../api/axios";
 export const getData = async url => {
   return await axiosInstance.get(url);
 };
-export const getDataByTitle = async (url, title) => {
-  return await axiosInstance.get(`/${url}?title=${title}`);
+export const getDataByBrandAndKind = async (url, brand, kind) => {
+  return await axiosInstance.get(`/${url}?brand=${brand}&kind=${kind}`);
 };
-export const updateCart = async (url, id, body) => {
-  return await axiosInstance.patch(`/${url}/${id}`, body);
+export const getDataById = async (url, id) => {
+  return await axiosInstance.get(`/${url}/${id}`);
 };

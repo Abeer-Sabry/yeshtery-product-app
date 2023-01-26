@@ -1,16 +1,21 @@
 import React, { Component } from "react";
+import "./Home.scss";
 // components
-import Products from "../../components/Products/Products";
-import { axiosInstance } from "../../api/axios";
+import ProductItem from "../../components/Products/ProductItem";
 
 class Home extends Component {
   render() {
+    const { products, loading } = this.props;
     return (
       <>
-        {this.props.loading ? (
+        {loading ? (
           "Loading"
         ) : (
-          <Products data={this.props.products && this.props.products} />
+          <div className="productsWrapper">
+            {products?.map(product => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
         )}
       </>
     );

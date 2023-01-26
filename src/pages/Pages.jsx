@@ -1,21 +1,25 @@
 import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
-import SingleProduct from "./SingleProduct/SingleProduct";
 import Container from "../reusableComponents/Container/Container";
+
+const SingleProduct = React.lazy(() => import("../pages/SingleProduct/SingleProduct"));
 
 export default class Pages extends Component {
   render() {
+    const { products, loading, addToCart, cartItems } = this.props;
     return (
       <Container>
         <Routes>
+          <Route path="/" element={<Home products={products} loading={loading} />} />
           <Route
-            path="/"
-            element={<Home products={this.props.products} loading={this.props.loading} />}
+            path="/products/:id"
+            element={
+              <React.Suspense>
+                <SingleProduct addToCart={addToCart} cartItems={cartItems} />
+              </React.Suspense>
+            }
           />
-          <Route path="products/:title" element={<SingleProduct />} />
-
-          {/* <Route path="/products/:title" render={props => <SingleProduct {...props} />} /> */}
         </Routes>
       </Container>
     );

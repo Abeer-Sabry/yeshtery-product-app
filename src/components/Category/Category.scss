@@ -1,7 +1,7 @@
 .category {
   background-color: black;
   padding: 10px 0;
-  margin: 10px 0;
+  margin: 10px 0 20px 0;
 }
 .cateWrapper {
   display: flex;
@@ -10,9 +10,7 @@
   a {
     color: white;
   }
-  a.active {
-    color: red;
-  }
+
   @media only screen and (max-width: 679px) {
     flex-direction: column;
   }

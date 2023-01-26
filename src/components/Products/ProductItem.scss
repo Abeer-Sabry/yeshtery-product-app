@@ -4,6 +4,7 @@
   border-radius: 10px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+
   .productImg {
     width: 100%;
     text-align: center;
@@ -41,11 +42,38 @@
     color: black;
   }
   .productLogo {
-    width: 50px;
+    width: 40px;
   }
   .rateNumber {
     font-weight: 600;
     color: $gray-color;
     font-size: 12px;
+  }
+  .ratingDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-size: 15px;
+      display: inline-block;
+    }
+    span.rate {
+      color: $gray-color;
+      font-weight: 600;
+      font-size: 12px;
+      margin-left: 7px;
+    }
+  }
+  .country {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $gray-color;
+    margin-top: 5px;
+    font-size: 12px;
+    span {
+      font-weight: bold;
+      color: black;
+    }
   }
 }

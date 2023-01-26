@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./CartModal.scss";
 import Button from "../../reusableComponents/Button/Button";
+import { formatDiscount, numberWithCommas } from "../../helpers/price";
 class CartModal extends Component {
   render() {
-    const { cartItems } = this.props;
-    console.log("modal", cartItems);
+    const { cartItems, closeCart } = this.props;
+
     return (
       <div className="overlay" onClick={e => e.stopPropagation()}>
         <div className="cartWrapper">
@@ -12,7 +13,7 @@ class CartModal extends Component {
             className="closeIcon"
             src="/images/Group 1440.svg"
             alt=""
-            onClick={() => this.props.closeCart()}
+            onClick={() => closeCart()}
           />
           <h3>My Cart</h3>
           <p>cart summary</p>
@@ -34,7 +35,9 @@ class CartModal extends Component {
                         </span>
                       </span>
                       <div className="removeAction">
-                        <span>{item.price} L.E</span>
+                        <span>
+                          {numberWithCommas(formatDiscount(item.price, item.discount))} L.E
+                        </span>
                         <Button>Remove</Button>
                       </div>
                     </div>
@@ -46,7 +49,9 @@ class CartModal extends Component {
                   total:{" "}
                   {cartItems.reduce(
                     (accumulator, currentValue) =>
-                      accumulator + currentValue.qty * currentValue.price,
+                      accumulator +
+                      currentValue.qty *
+                        numberWithCommas(formatDiscount(currentValue.price, currentValue.discount)),
                     0
                   )}
                 </span>

@@ -8,6 +8,7 @@ import SearchBar from "../../reusableComponents/SearchBar/SearchBar";
 
 class Navbar extends Component {
   render() {
+    const { cartItems, showCart } = this.props;
     return (
       <Container>
         <div className="parentGrid">
@@ -23,13 +24,8 @@ class Navbar extends Component {
           </div>
           <div className="flexible ">
             <FlexDiv>
-              <IconsDev
-                icon={"/images/Path 772.svg"}
-                title={"cart"}
-                badge={0}
-                onClick={() => this.props.showCart()}
-              />
-              <span className="badge">{this.props.cartItems.length}</span>
+              <IconsDev icon={"/images/Path 772.svg"} title={"cart"} onClick={() => showCart()} />
+              <span className="badge">{cartItems.length}</span>
             </FlexDiv>
             <IconsDev icon={"/images/Path 771 (1).svg"} title={"wishList"} />
             <IconsDev icon={"/images/Path 773.svg"} title={"Login"} />

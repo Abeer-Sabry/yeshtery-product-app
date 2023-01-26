@@ -1,0 +1,17 @@
+@use "../../variables/Styles.scss" as *;
+.brandWrapper {
+  margin: 150px 0 50px 0;
+  h3 {
+    color: $secondary-color;
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-weight: 500;
+    color: $gray-color;
+    margin-bottom: 25px;
+  }
+  .alice-carousel__stage-item {
+    padding: 6px;
+  }
+}
