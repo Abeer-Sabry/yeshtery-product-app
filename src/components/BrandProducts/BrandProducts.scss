@@ -14,4 +14,18 @@
   .alice-carousel__stage-item {
     padding: 6px;
   }
+  .alice-carousel__dots-item:not(.__custom) {
+    width: 100px;
+    height: 4px;
+    border-radius: 0;
+    @media only screen and (max-width: 750px) {
+      width: 50px;
+    }
+    @media only screen and (max-width: 390px) {
+      width: 30px;
+    }
+  }
+  .alice-carousel__dots-item:not(.__custom):not(:last-child) {
+    margin-right: 0;
+  }
 }
