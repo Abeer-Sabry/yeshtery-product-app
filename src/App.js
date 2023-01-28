@@ -21,6 +21,16 @@ export default class App extends Component {
     };
   }
 
+  // fetching products data
+  componentDidMount() {
+    getData("/products").then(response => {
+      this.setState({
+        loading: false,
+        products: response.data,
+      });
+    });
+  }
+
   addToCart = product => {
     const exist = this.state.cartItems.find(item => item.id === product.id);
     this.setState({
@@ -32,15 +42,22 @@ export default class App extends Component {
     });
   };
 
-  // fetching products data
-  componentDidMount() {
-    getData("/products").then(response => {
-      this.setState({
-        loading: false,
-        products: response.data,
-      });
+  decreaseQty = product => {
+    const item = this.state.cartItems.find(item => item.id === product.id);
+    this.setState({
+      cartItems:
+        item?.qty === 1
+          ? this.state.cartItems.filter(item => item.id !== product.id)
+          : this.state.cartItems.map(item =>
+              item.id === product.id ? { ...item, qty: item.qty - 1 } : item
+            ),
     });
-  }
+  };
+  removeCartItem = product => {
+    this.setState({
+      cartItems: this.state.cartItems.filter(item => item.id !== product.id),
+    });
+  };
 
   // this onClick cartIcon in Navbar component Function for opening cartModal
   showCart = () => {
@@ -66,9 +83,14 @@ export default class App extends Component {
           loading={this.state.loading}
           cartItems={this.state.cartItems}
           addToCart={this.addToCart}
+          decreaseQty={this.decreaseQty}
         />
         {this.state.showCartModal && (
-          <CartModal cartItems={this.state.cartItems} closeCart={this.closeCart} />
+          <CartModal
+            cartItems={this.state.cartItems}
+            closeCart={this.closeCart}
+            removeCartItem={this.removeCartItem}
+          />
         )}
         <Footer />
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Home.scss";
 // components
 import ProductItem from "../../components/Products/ProductItem";
+import Spinner from "../../components/Spinner/Spinner";
 
 class Home extends Component {
   render() {
@@ -9,7 +10,7 @@ class Home extends Component {
     return (
       <>
         {loading ? (
-          "Loading"
+          <Spinner />
         ) : (
           <div className="productsWrapper">
             {products?.map(product => (

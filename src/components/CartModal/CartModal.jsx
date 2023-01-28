@@ -4,7 +4,7 @@ import Button from "../../reusableComponents/Button/Button";
 import { formatDiscount, numberWithCommas } from "../../helpers/price";
 class CartModal extends Component {
   render() {
-    const { cartItems, closeCart } = this.props;
+    const { cartItems, closeCart, removeCartItem } = this.props;
 
     return (
       <div className="overlay" onClick={e => e.stopPropagation()}>
@@ -38,7 +38,7 @@ class CartModal extends Component {
                         <span>
                           {numberWithCommas(formatDiscount(item.price, item.discount))} L.E
                         </span>
-                        <Button>Remove</Button>
+                        <Button onClick={() => removeCartItem(item)}>Remove</Button>
                       </div>
                     </div>
                   </div>
@@ -47,11 +47,10 @@ class CartModal extends Component {
               <div className="total">
                 <span>
                   total:{" "}
-                  {cartItems.reduce(
+                  {cartItems?.reduce(
                     (accumulator, currentValue) =>
                       accumulator +
-                      currentValue.qty *
-                        numberWithCommas(formatDiscount(currentValue.price, currentValue.discount)),
+                      currentValue.qty * formatDiscount(currentValue.price, currentValue.discount),
                     0
                   )}
                 </span>

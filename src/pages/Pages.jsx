@@ -7,7 +7,7 @@ const SingleProduct = React.lazy(() => import("../pages/SingleProduct/SingleProd
 
 export default class Pages extends Component {
   render() {
-    const { products, loading, addToCart, cartItems } = this.props;
+    const { products, loading, addToCart, cartItems, decreaseQty } = this.props;
     return (
       <Container>
         <Routes>
@@ -16,7 +16,11 @@ export default class Pages extends Component {
             path="/products/:id"
             element={
               <React.Suspense>
-                <SingleProduct addToCart={addToCart} cartItems={cartItems} />
+                <SingleProduct
+                  addToCart={addToCart}
+                  cartItems={cartItems}
+                  decreaseQty={decreaseQty}
+                />
               </React.Suspense>
             }
           />

@@ -3,6 +3,7 @@ import "./SingleProduct.scss";
 // components
 import Button from "../../reusableComponents/Button/Button";
 import BrandProducts from "../../components/BrandProducts/BrandProducts";
+import Spinner from "../../components/Spinner/Spinner";
 // helpers
 import withRouter from "../../helpers/withRouter";
 import { formatDiscount, numberWithCommas } from "../../helpers/price";
@@ -52,10 +53,10 @@ class SingleProduct extends Component {
     return (
       <div>
         {this.state.loading ? (
-          "loading..."
+          <Spinner />
         ) : (
           <>
-            <Breadcrumbs aria-label="breadcrumb">
+            <Breadcrumbs aria-label="breadcrumb" className="bread">
               <Typography underline="hover" color="inherit" href="/">
                 {gender}
               </Typography>
@@ -97,10 +98,10 @@ class SingleProduct extends Component {
                 </div>
                 <div className="singlePrice">
                   <span className="price">
-                    ${numberWithCommas(formatDiscount(price, discount))}
+                    {numberWithCommas(formatDiscount(price, discount))} L.E
                   </span>
                   <span>
-                    <del className="singleDiscount">${numberWithCommas(price)}</del>
+                    <del className="singleDiscount">{numberWithCommas(price)}</del>
                   </span>
                   <span className="percent">{discount}%</span>
                 </div>
@@ -135,8 +136,18 @@ class SingleProduct extends Component {
                 <div className="addToCart">
                   {item ? item.qty : 0}
 
-                  <span className="decrement">-</span>
-                  <span className="increment">+</span>
+                  <span
+                    className="decrement"
+                    onClick={() => this.props.decreaseQty(this.state.product)}
+                  >
+                    -
+                  </span>
+                  <span
+                    className="increment"
+                    onClick={() => this.props.addToCart(this.state.product)}
+                  >
+                    +
+                  </span>
                 </div>
                 <div className="cartBtns">
                   <Button onClick={() => this.props.addToCart(this.state.product)} bg={false}>
